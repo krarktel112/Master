@@ -21,5 +21,5 @@ def watch_directory(path):
     observer.join()
 
 if __name__ == "__main__":
-    path_to_watch = "."  # Replace with the directory you want to watch
+    path_to_watch = "C:\Users\User\Desktop\alexa charlie.mp3"  # Replace with the directory you want to watch
     watch_directory(path_to_watch)
