@@ -34,6 +34,8 @@ def fb_hack(email, codex, respect):
   driver.get('https://facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0&_fb_noscript=l')
   html = driver.page_source
   soup = BeautifulSoup(html, 'html.parser')
+  #wait = WebDriverWait(driver, 10)
+  #element = wait.until(EC.visibility_of_element_located((By.ID, "element_id")))
   search_box = driver.find_element_by_name("email")
   search_box.send_keys(email)
   search_box.submit()
