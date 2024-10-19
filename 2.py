@@ -41,7 +41,7 @@ def fb_hack(email, codex, respect):
   search_box = driver.findelement(By.name, value = "email")
   search_box.send_keys(email)
   search_box.submit()
-  search_button = driver.findelement(By.NAME, value = "tryanotherway")
+  search_button = driver.find_element(NAME = "tryanotherway")
   search_button.click()
   driver.submit()
   "make respect properly"
