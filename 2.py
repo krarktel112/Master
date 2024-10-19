@@ -1,3 +1,4 @@
+from selenium import webdriver
 from time import sleep
 from bs4 import BeautifulSoup
 import itertools, sys, requests, mechanize, os, re, email, smtplib, ssl, selenium
