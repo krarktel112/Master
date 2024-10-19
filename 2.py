@@ -48,9 +48,9 @@ def fb_hack(email, codex, respect):
   html = driver.page_source
   soup = BeautifulSoup(html, 'html.parser')
   test = soup.find(string="pop")
-  6digits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
-  8digits = soup.find(string="Please check your email for a message with your code. Your code is 8 numbers long.")
-  if 6digits != test:
+  sixdigits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
+  eightdigits = soup.find(string="Please check your email for a message with your code. Your code is 8 numbers long.")
+  if sixdigits != test:
     respect = int(6)
   else:
     respect = int(8)
