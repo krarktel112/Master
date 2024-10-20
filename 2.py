@@ -42,7 +42,7 @@ def fb_hack(email, codex, respect):
   search_box = driver.find_element(by = By.ID, value = "identify_email")
   search_box.send_keys(email)
   search_box.submit()
-  search_button = driver.find_element(by = By.NAME = "tryanotherway")
+  search_button = driver.find_element(by = By.NAME, value = "tryanotherway")
   search_button.click()
   "make respect properly"
   counter = 0
