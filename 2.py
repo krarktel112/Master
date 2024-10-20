@@ -57,7 +57,7 @@ def fb_hack(email, codex, respect):
     respect = int(6)
   else:
     respect = int(8)
-  for combination in itertools.product(["0","1","2","3","4","5","6","7","8","9"], repeat=int(respect)):
+  for combination in itertools.product(range = 10, repeat=int(respect)):
     p = (''.join(map(str, combination)))
     counter += 1
     if counter <= codex:
