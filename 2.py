@@ -67,6 +67,7 @@ def fb_hack(email, codex, respect):
         searchbox = driver.find_element(by = By.NAME, value = "n")
         searchbox.send_keys(p)
         searchbox.submit()
+        sleepy(30)
       except:
         html = driver.page_source
         soup = BeautifulSoup(html, 'html.parser')
