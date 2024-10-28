@@ -34,8 +34,8 @@ def sleepy(counter):
 def fb_hack(email, codex, respect):
   os.system('clear')
   soup = BeautifulSoup()
-  options = Options()
-  options.headless = True
+  options = FirefoxOptions()
+  options.add_argument("--headless")
   driver = webdriver.Firefox(options=options, executable_path=r'C:\Utility\BrowserDrivers\geckodriver.exe')
   driver.get("http://google.com/")
   print ("Headless Firefox Initialized")
