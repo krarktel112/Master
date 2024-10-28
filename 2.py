@@ -36,6 +36,12 @@ def fb_hack(email, codex, respect):
   soup = BeautifulSoup()
   options = Options()
   options.headless = True
+  driver = webdriver.Firefox(options=options, executable_path=r'C:\Utility\BrowserDrivers\geckodriver.exe')
+  driver.get("http://google.com/")
+  print ("Headless Firefox Initialized")
+  driver.quit()
+  options = Options()
+  options.headless = True
   options = webdriver.FirefoxOptions()
   driver = webdriver.Firefox(options=options)
   driver.get('https://facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0&_fb_noscript=l')
