@@ -36,7 +36,7 @@ def fb_hack(email, codex, respect):
   soup = BeautifulSoup()
   options = Options()
   options.add_argument("--headless")
-  driver = webdriver.chromium(options=options, executable_path=r'C:\Utility\BrowserDrivers\geckodriver.exe')
+  driver = webdriver.geckodriver(options=options, executable_path=r'C:\Utility\BrowserDrivers\geckodriver.exe')
   driver.get("http://google.com/")
   print ("Headless Firefox Initialized")
   driver.quit()
