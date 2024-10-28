@@ -8,6 +8,7 @@ from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from selenium.webdriver.firefox.options import Options
 
 
 MOZILLA_UAS = 'Mozilla/5.0 (X11; U; Linux i686; en-US) ' \
@@ -33,9 +34,10 @@ def sleepy(counter):
 def fb_hack(email, codex, respect):
   os.system('clear')
   soup = BeautifulSoup()
-  options = ChromeOptions()
-  options.add_argument("--headless=new")
-  driver = webdriver.Chrome(options=options)
+  options = Options()
+  options.headless = True
+  options = webdriver.FirefoxOptions()
+  driver = webdriver.Firefox(options=options)
   driver.get('https://facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0&_fb_noscript=l')
   html = driver.page_source
   soup = BeautifulSoup(html, 'html.parser')
