@@ -17,7 +17,7 @@ options.binary_location = firefox_bin
 
 #service = selenium.webdriver.firefox.service.Service(executable_path=firefoxdriver_bin)
 
-browser = selenium.webdriver.Firefox(service=service, options=options)
+browser = selenium.webdriver.Firefox(options=options)
 
 firefox_bin = "/snap/firefox/current/usr/lib/firefox/firefox"
 firefoxdriver_bin = "/snap/firefox/current/usr/lib/firefox/geckodriver"
