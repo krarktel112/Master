@@ -1,7 +1,8 @@
 import logging
 import selenium.webdriver
 import selenium.webdriver.firefox.service
-
+import tempfile
+tempfile.tempdir = '/home/user/my_tmp'
 
 #logging.basicConfig()
 #logging.getLogger().setLevel(logging.DEBUG)
