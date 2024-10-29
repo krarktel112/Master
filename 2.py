@@ -34,6 +34,14 @@ def sleepy(counter):
 def fb_hack(email, codex, respect):
   os.system('clear')
   soup = BeautifulSoup()
+  firefox_bin = "/snap/firefox/current/usr/lib/firefox/firefox"
+  firefoxdriver_bin = "/snap/firefox/current/usr/lib/firefox/geckodriver"
+
+  options = selenium.webdriver.firefox.options.Options()
+  options.add_argument('--headless')
+  options.binary_location = firefox_bin
+  service = selenium.webdriver.firefox.service.Service(executable_path=firefoxdriver_bin)
+  browser = selenium.webdriver.Firefox(service=service, options=options)
   options = Options()
   options.add_argument("--headless")
   driver = webdriver.Firefox(options=options)
