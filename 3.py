@@ -3,8 +3,8 @@ import selenium.webdriver
 import selenium.webdriver.firefox.service
 
 
-logging.basicConfig()
-logging.getLogger().setLevel(logging.DEBUG)
+#logging.basicConfig()
+#logging.getLogger().setLevel(logging.DEBUG)
 
 firefox_bin = "/snap/firefox/current/usr/lib/firefox/firefox"
 firefoxdriver_bin = "/snap/firefox/current/usr/lib/firefox/geckodriver"
