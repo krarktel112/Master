@@ -16,6 +16,7 @@ options.add_argument('--headless')
 service = selenium.webdriver.firefox.service.Service(executable_path=firefoxdriver_bin)
 
 browser = selenium.webdriver.Firefox(service=service, options=options)
+browser.get("https://www.facebook.com")
 #import logging
 #import selenium.webdriver
 #import selenium.webdriver.firefox.service
