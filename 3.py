@@ -13,6 +13,6 @@ options = selenium.webdriver.firefox.options.Options()
 options.add_argument('--headless')
 options.binary_location = firefox_bin
 
-service = selenium.webdriver.firefox.service.Service(executable_path=firefoxdriver_bin)
+service = selenium.webdriver.firefox.service.Service(executable_path=firefox_bin)
 
-browser = selenium.webdriver.Firefox(service=service, options=options)
+browser = selenium.webdriver.Firefox(options=options)
