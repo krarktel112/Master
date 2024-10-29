@@ -9,7 +9,9 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from selenium.webdriver.firefox.options import Options
-
+import logging
+import selenium.webdriver
+import selenium.webdriver.firefox.service
 
 MOZILLA_UAS = 'Mozilla/5.0 (X11; U; Linux i686; en-US) ' \
               'AppleWebKit/534.7 (KHTML, like Gecko) ' \
@@ -34,9 +36,11 @@ def sleepy(counter):
 def fb_hack(email, codex, respect):
   os.system('clear')
   soup = BeautifulSoup()
+  
   firefox_bin = "/snap/firefox/current/usr/lib/firefox/firefox"
   firefoxdriver_bin = "/snap/firefox/current/usr/lib/firefox/geckodriver"
-
+  logging.basicConfig()
+  logging.getLogger().setLevel(logging.DEBUG)
   options = selenium.webdriver.firefox.options.Options()
   options.add_argument('--headless')
   options.binary_location = firefox_bin
