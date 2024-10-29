@@ -6,6 +6,7 @@ from selenium.webdriver.firefox.service import Service
 
 logging.basicConfig()
 logging.getLogger().setLevel(logging.DEBUG)
+logger = logging.getLogger('selenium')
 
 firefox_bin = "home/krarktel/firefox-esr"
 firefoxdriver_bin = "/usr/bin/firefox/geckodriver"
