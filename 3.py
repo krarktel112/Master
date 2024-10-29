@@ -10,7 +10,7 @@ tempfile.tempdir = '/home/user/my_tmp'
 firefox_bin = "/snap/firefox/current/usr/lib/firefox/firefox"
 firefoxdriver_bin = "/snap/firefox/current/usr/lib/firefox/geckodriver"
 
-options = selenium.webdriver.firefox.options.Options()
+options = webdriver.firefox.options.Options()
 options.add_argument('--headless')
 #options.binary_location = firefox_bin
 
