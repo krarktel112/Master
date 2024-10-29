@@ -13,7 +13,8 @@ firefoxdriver_bin = "/usr/bin/firefox/geckodriver"
 options = selenium.webdriver.firefox.options.Options()
 options.add_argument('--headless')
 options.browser_version = 'esr'
-options.binary_location = firefox_bin
+#options.binary_location = firefox_bin
+Firefox = "firefox-esr"
 
 #service = selenium.webdriver.firefox.service.Service(executable_path=firefoxdriver_bin)
 
