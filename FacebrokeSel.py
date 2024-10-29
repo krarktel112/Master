@@ -36,26 +36,11 @@ def sleepy(counter):
 def fb_hack(email, codex, respect):
   os.system('clear')
   soup = BeautifulSoup()
-  
-  firefox_bin = "/snap/firefox/current/usr/lib/firefox/firefox"
-  firefoxdriver_bin = "/snap/firefox/current/usr/lib/firefox/geckodriver"
-  logging.basicConfig()
-  logging.getLogger().setLevel(logging.DEBUG)
-  options = selenium.webdriver.firefox.options.Options()
-  options.add_argument('--headless')
-  options.binary_location = firefox_bin
-  service = selenium.webdriver.firefox.service.Service(executable_path=firefoxdriver_bin)
-  browser = selenium.webdriver.Firefox(service=service, options=options)
-  options = Options()
-  options.add_argument("--headless")
-  driver = webdriver.Firefox(options=options)
-  driver.get("http://google.com/")
-  print ("Headless Firefox Initialized")
   driver.quit()
   options = Options()
-  options.headless = True
-  options = webdriver.FirefoxOptions()
-  driver = webdriver.Firefox(options=options)
+  options.add_argument("--headless")
+  options = webdriver.ChromeOptions()
+  driver = webdriver.Chrome(options=options)
   driver.get('https://facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0&_fb_noscript=l')
   html = driver.page_source
   soup = BeautifulSoup(html, 'html.parser')
