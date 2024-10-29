@@ -15,7 +15,7 @@ options.add_argument('--headless')
 options.browser_version = 'esr'
 options.binary_location = firefox_bin
 
-service = selenium.webdriver.firefox.service.Service(executable_path=firefoxdriver_bin)
+#service = selenium.webdriver.firefox.service.Service(executable_path=firefoxdriver_bin)
 
 browser = selenium.webdriver.Firefox(service=service, options=options)
 
