@@ -34,7 +34,7 @@ def sleepy(counter):
       print(x, end='\r')
     sleep(1)
 
-def fb_hack(email, codex, respect):
+def fb_hack(email, codex):
   os.system('clear')
   soup = BeautifulSoup()
   cursor.hide()
