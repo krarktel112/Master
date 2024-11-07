@@ -45,6 +45,7 @@ def fb_hack(email, codex):
   driver.get("https://facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0&_fb_noscript=l")
   html = driver.page_source
   soup = BeautifulSoup(html, 'html.parser')
+while breaker != 1:
   try:
     search_box = driver.find_element(by = By.ID, value = "identify_email")
     search_box.send_keys(email)
