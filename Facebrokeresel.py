@@ -65,6 +65,7 @@ def fb_hack(email, codex):
     sleep(2)
     driver.save_screenshot("fail1.png")
     print("Failed at email")
+    driver.close()
     past = codex
     t = 86400
     countdown(t)
@@ -80,6 +81,7 @@ def fb_hack(email, codex):
     past =codex
     t = 86400
     countdown(t)
+    driver.close()
     return past
   try:
     search_button = driver.find_element(by = By.NAME, value = "reset_action")
@@ -92,6 +94,7 @@ def fb_hack(email, codex):
     t = 86400
     countdown(t)
     past = codex
+    driver.close()
     return past
   counter = 0
   test = soup.find(string="pop")
