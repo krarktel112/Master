@@ -40,11 +40,9 @@ def sleepy(counter):
 def fb_hack(email, codex, respect):
   os.system('clear')
   soup = BeautifulSoup()
-  options = webdriver.ChromeOptions()
-  options.add_argument("--no-sandbox")
-  options.add_argument("--disable-dev-shm-usage")
-  options.add_argument("--headless=new")
-  driver = webdriver.Chrome(options=options)
+  options = webdriver.FirefoxOptions()
+  options.add_argument("--headless")
+  driver = webdriver.Firefox(options=options)
   driver.get("https://facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0&_fb_noscript=l")
   html = driver.page_source
   soup = BeautifulSoup(html, 'html.parser')
