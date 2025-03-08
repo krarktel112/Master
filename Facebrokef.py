@@ -53,7 +53,7 @@ def fb_hack(email, codex, respect):
     sleep(2)
   except:
     sleep(2)
-    driver.save_screenshot("fail1.png")
+    driver.save_screenshot("/data/data/com.termux/files/home/storage/pictures/fail1.png")
     print("Failed at email")
   try:
     search_button = driver.find_element(by = By.XPATH, value = "/html/body/div[1]/div[1]/div[1]/div/div/form/div/div[3]/div/div[1]/button")
@@ -61,7 +61,7 @@ def fb_hack(email, codex, respect):
     sleep(2)
   except:
     sleep(2)
-    driver.save_screenshot("fail2.png")
+    driver.save_screenshot("/data/data/com.termux/files/home/storage/pictures/fail2.png")
     print("Failed at try another way")
     dud = input()
     sys.exit()
