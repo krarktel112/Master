@@ -14,7 +14,7 @@ from email.mime.text import MIMEText
 import logging
 import selenium.webdriver
 from selenium import webdriver
-
+import time
 
 MOZILLA_UAS = 'Mozilla/5.0 (X11; U; Linux i686; en-US) ' \
               'AppleWebKit/534.7 (KHTML, like Gecko) ' \
