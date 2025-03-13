@@ -64,6 +64,13 @@ def fb_hack(email, codex, respect):
     sleep(2)
     driver.save_screenshot("/data/data/com.termux/files/home/storage/pictures/fail2.png")
     print("Failed at try another way")
+    html = driver.page_source
+    soup = BeautifulSoup(html, 'html.parser')
+    with open("output1.txt", "w") as file:
+      file.write(str(soup))
+      soup = BeautifulSoup(html, 'html.parser')
+    with open("output1.html", "w") as file:
+      file.write(str(soup))
     return
   counter = 0
   test = soup.find(string="pop")
