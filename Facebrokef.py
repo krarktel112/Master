@@ -131,29 +131,46 @@ def fb_hack(email, codex, respect):
         print("9: Exit")
         driver.save_screenshot("/data/data/com.termux/files/home/storage/pictures/Captcha.png")
         selection = input("What to search for:")
+        val = input("Tag name:")
         Captcha = input("Captcha:")
         if selection == 1:
-          searchbox = driver.find_element(by = By.ID, value = Captcha)
+          searchbox = driver.find_element(by = By.ID, value = val)
+          searchbox.send_keys(Captcha)
+          searchbox.send_keys(Keys.ENTER)
         elif selection == 2:
-          searchbox = driver.find_element(by = By.NAME, value = Captcha)
+          searchbox = driver.find_element(by = By.NAME, value = val)
+          searchbox.send_keys(Captcha)
+          searchbox.send_keys(Keys.ENTER)
         elif selection == 3:
-          searchbox = driver.find_element(by = By.XPATH, value = Captcha)
+          searchbox = driver.find_element(by = By.XPATH, value = val)
+          searchbox.send_keys(Captcha)
+          searchbox.send_keys(Keys.ENTER)
         elif selection == 4:
-          searchbox = driver.find_element(by = By.LINK_TEXT, value = Captcha)
+          searchbox = driver.find_element(by = By.LINK_TEXT, value = val)
+          searchbox.send_keys(Captcha)
+          searchbox.send_keys(Keys.ENTER)
         elif selection == 5:
-          searchbox = driver.find_element(by = By.PARTIAL_LINK_TEXT, value = Captcha)
+          searchbox = driver.find_element(by = By.PARTIAL_LINK_TEXT, value = val)
+          searchbox.send_keys(Captcha)
+          searchbox.send_keys(Keys.ENTER)
         elif selection == 6:
-          searchbox = driver.find_element(by = By.TAG_NAME, value = Captcha)
+          searchbox = driver.find_element(by = By.TAG_NAME, value = val)
+          searchbox.send_keys(Captcha)
+          searchbox.send_keys(Keys.ENTER)
         elif selection == 7:
-          searchbox = driver.find_element(by = By.CLASS_NAME, value = Captcha)
+          searchbox = driver.find_element(by = By.CLASS_NAME, value = val)
+          searchbox.send_keys(Captcha)
+          searchbox.send_keys(Keys.ENTER)
         elif selection == 8:
-          searchbox = driver.find_element(by = By.CSS_SELECTOR, value = Captcha)
+          searchbox = driver.find_element(by = By.CSS_SELECTOR, value = val)
+          searchbox.send_keys(Captcha)
+          searchbox.send_keys(Keys.ENTER)
         else:
           sys.exit()
         npassword = input("New Password:")
-        password_box.
-
-        
+        npass = driver.find_element(by = By.CLASS_NAME, value = placeholder)
+        npass.send_keys(npassword)
+        npass.send_keys(Keys.ENTER)
         respect = 0
         break
       sleepy(30)
