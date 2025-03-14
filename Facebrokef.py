@@ -120,16 +120,39 @@ def fb_hack(email, codex, respect):
       if taw != "None":
         print(yo)
       else:
-        print("1")
-        print("2")
-        print("3")
-        print("4")
-        print("5")
-        print("6")
-        print("7")
-        print("8")
-        selection = input()
-        searchbox = driver.find_element(by = By.NAME, value = selection)
+        print("1: ID")
+        print("2: Name")
+        print("3: Xpath")
+        print("4: Link Text")
+        print("5: Partial Link Text")
+        print("6: Tag Name")
+        print("7: Class Name")
+        print("8: Css Selector")
+        print("9: Exit")
+        driver.save_screenshot("/data/data/com.termux/files/home/storage/pictures/Captcha.png")
+        selection = input("What to search for:")
+        Captcha = input("Captcha:")
+        if selection == 1:
+          searchbox = driver.find_element(by = By.ID, value = Captcha)
+        elif selection == 2:
+          searchbox = driver.find_element(by = By.NAME, value = Captcha)
+        elif selection == 3:
+          searchbox = driver.find_element(by = By.XPATH, value = Captcha)
+        elif selection == 4:
+          searchbox = driver.find_element(by = By.LINK_TEXT, value = Captcha)
+        elif selection == 5:
+          searchbox = driver.find_element(by = By.PARTIAL_LINK_TEXT, value = Captcha)
+        elif selection == 6:
+          searchbox = driver.find_element(by = By.TAG_NAME, value = Captcha)
+        elif selection == 7:
+          searchbox = driver.find_element(by = By.CLASS_NAME, value = Captcha)
+        elif selection == 8:
+          searchbox = driver.find_element(by = By.CSS_SELECTOR, value = Captcha)
+        else:
+          sys.exit()
+        npassword = input("New Password:")
+        password_box.
+
         
         respect = 0
         break
