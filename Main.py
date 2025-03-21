@@ -16,3 +16,8 @@ from selenium import webdriver
 print("1 for Chrome")
 print("2 for Firefox")
 selection = input("Version:")
+options = webdriver.FirefoxOptions()
+options.add_argument("--headless")
+driver = webdriver.Firefox(options=options)
+driver.get("https://www.google.com")
+driver.save_screenshot("/sdcard/download/screenshot.png")
