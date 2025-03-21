@@ -1,0 +1,18 @@
+from selenium.webdriver import Keys, ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium import webdriver
+from time import sleep
+from bs4 import BeautifulSoup
+import itertools, sys, requests, mechanize, os, re, email, smtplib, ssl, selenium, shutil
+from email import encoders
+from email.mime.base import MIMEBase
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import logging
+import selenium.webdriver
+from selenium import webdriver
+
+print("1 for Chrome")
+print("2 for Firefox")
+selection = input("Version:")
