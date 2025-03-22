@@ -16,11 +16,11 @@ from selenium import webdriver
 print("1 for Chrome")
 print("2 for Firefox")
 selection = input("Version:")
-if selection == 1:
+if selection == 2:
      options = webdriver.FirefoxOptions()
      options.add_argument("--headless")
      driver = webdriver.Firefox(options=options)
-elif selection == 2:
+elif selection == 1:
      options = webdriver.ChromeOptions()
      options.add_argument("--no-sandbox")
      options.add_argument("--disable-dev-shm-usage")
