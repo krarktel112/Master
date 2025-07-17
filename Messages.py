@@ -9,7 +9,7 @@ CARRIERS = {
 }
  
 EMAIL = "krarktel@gmail.com"
-PASSWORD = "Yuka338"
+PASSWORD = "hrto novv zynu oqcy"
  
 def send_message(phone_number, carrier, message):
     recipient = phone_number + CARRIERS[carrier]
