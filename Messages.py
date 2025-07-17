@@ -8,8 +8,8 @@ CARRIERS = {
     "sprint": "@messaging.sprintpcs.com"
 }
  
-EMAIL = "EMAIL"
-PASSWORD = "PASSWORD"
+EMAIL = "krarktel@gmail.com"
+PASSWORD = "Yuka338"
  
 def send_message(phone_number, carrier, message):
     recipient = phone_number + CARRIERS[carrier]
