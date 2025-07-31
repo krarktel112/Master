@@ -1,0 +1,18 @@
+# Use a base image (e.g., Ubuntu, Alpine, Node.js)
+FROM ubuntu:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy application files into the container
+COPY . /app
+
+# Install dependencies (example for a Node.js app)
+RUN apt-get update && apt-get install -y nodejs npm
+RUN npm install
+
+# Expose a port if your application listens on one
+EXPOSE 3000
+
+# Define the command to run when the container starts
+CMD ["npm", "start"]
